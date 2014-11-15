@@ -1,7 +1,7 @@
 {
   "name": "grunt-sitemaps",
   "description": "A Grunt plugin to automate the creation of sitemaps",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/christian-hager/grunt-sitemaps",
   "author": {
     "name": "Christian Hager",
