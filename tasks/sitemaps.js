@@ -56,7 +56,6 @@ module.exports = function (grunt) {
                 url = options.baseUrl.concat(url);
                 if(options.mapIndexFilesToFolders){
                     url=url.replace(/(.*)\/index\.(php|html)$/i, '$1/');
-                    grunt.log.writeln('Replace: ' + url);
                 }
                 if(options.removeFileExtensions){
                     //url = url.slice(0, url.lastIndexOf('.'));

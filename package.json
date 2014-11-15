@@ -2,23 +2,23 @@
   "name": "grunt-sitemaps",
   "description": "A Grunt plugin to automate the creation of sitemaps",
   "version": "0.1.0",
-  "homepage": "https://github.com/chager/grunt-sitemaps",
+  "homepage": "https://github.com/christian-hager/grunt-sitemaps",
   "author": {
     "name": "Christian Hager",
-    "email": "ch.hager@gmail.com",
+    "email": "me@chager.de",
     "url": "www.chager.de"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/chager/grunt-sitemaps.git"
+    "url": "git://github.com/christian-hager/grunt-sitemaps.git"
   },
   "bugs": {
-    "url": "https://github.com/chager/grunt-sitemaps/issues"
+    "url": "https://github.com/christian-hager/grunt-sitemaps/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/chager/grunt-sitemaps/blob/master/LICENSE-MIT"
+      "url": "https://github.com/christian-hager/grunt-sitemaps/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
