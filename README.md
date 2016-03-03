@@ -116,9 +116,27 @@ grunt.initConfig({
 });
 ```
 
+#### Page Priorities
+Specifying page priorities can be done by matching the URL's absolute path to its priority. Non-matching pages use the default priority.
+
+```js
+grunt.initConfig({
+  sitemaps: {
+    options: {
+      priority: '0.6',
+      priorities: {
+        '/': '1.0',
+        '/about-us': '0.8'
+      }
+    }
+  },
+});
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 
+ * 2016-03-02   v0.1.2   Support page priorities.
  * 2014-11-15   v0.1.0   Initial release.

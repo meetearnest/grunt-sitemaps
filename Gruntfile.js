@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true, // Enable dynamic expansion
           cwd: 'test/fixtures/',
-          src: ['**/*.{php,html}', '!exclude/**'] // Actual patterns to match
+          src: ['**/*.{php,html}', '!exclude/**', '!priorities/**'] // Actual patterns to match
         }]
       },
       custom:{
@@ -47,13 +47,32 @@ module.exports = function(grunt) {
           baseUrl: 'http://www.mysite.com/',
           contentRoot: 'test/fixtures/',
           dest: 'tmp/custom/',
-          removeFileExtensions:true,
+          removeFileExtensions: true,
           mapIndexFilesToFolders: false
         },
         files: [{
           expand: true, // Enable dynamic expansion
           cwd: 'test/fixtures/',
-          src: ['**/*.{php,html}', '!exclude/**'] // Actual patterns to match
+          src: ['**/*.{php,html}', '!exclude/**', '!priorities/**'] // Actual patterns to match
+        }]
+      },
+      priorities: {
+        options: {
+          baseUrl: 'http://www.mysite.com/',
+          contentRoot: 'test/fixtures/',
+          dest: 'tmp/priorities/',
+          removeFileExtensions: true,
+          mapIndexFilesToFolders: false,
+          priority: '0.7',
+          priorities: {
+            'priorities/high': '1.0',
+            'priorities/low': '0.3'
+          }
+        },
+        files: [{
+          expand: true, // Enable dynamic expansion
+          cwd: 'test/fixtures/',
+          src: ['priorities/*.html'] // Actual patterns to match
         }]
       }
     },

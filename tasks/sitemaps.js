@@ -22,7 +22,8 @@ module.exports = function (grunt) {
             changefreq: 'daily',
             priority: '0.5',
             removeFileExtensions: false,
-            mapIndexFilesToFolders: true
+            mapIndexFilesToFolders: true,
+            priorities: {}
         });
 
         if (!options.baseUrl) {
@@ -53,14 +54,20 @@ module.exports = function (grunt) {
                     var root = new RegExp('^' + options.contentRoot);
                     url=url.replace(root,'');
                 }
+                var path = url;
                 url = options.baseUrl.concat(url);
                 if(options.mapIndexFilesToFolders){
                     url=url.replace(/(.*)\/index\.(php|html)$/i, '$1/');
+                    path=path.replace(/(.*)\/index\.(php|html)$/i, '$1/');
                 }
                 if(options.removeFileExtensions){
                     //url = url.slice(0, url.lastIndexOf('.'));
                     url = url.replace(/\.[^\/.]+$/i,'');
+                    path = path.replace(/\.[^\/.]+$/i,'');
                 }
+
+                // Determine priority
+                var priority = options.priorities[path] || options.priority;
 
                 grunt.verbose.writeln('Adding url: ' + url);
                 var mtime = new Date((fs.statSync(filepath).mtime).getTime()).toISOString();
@@ -68,7 +75,7 @@ module.exports = function (grunt) {
                 xml += '\t\t<loc>' + url + '</loc>\n';
                 xml += '\t\t<lastmod>' + mtime + '</lastmod>\n';
                 xml += '\t\t<changefreq>' + options.changefreq + '</changefreq>\n';
-                xml += '\t\t<priority>' + options.priority + '</priority>\n';
+                xml += '\t\t<priority>' + priority + '</priority>\n';
                 xml += '\t</url>\n';
 
                 return xml;

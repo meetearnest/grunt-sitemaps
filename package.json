@@ -1,16 +1,12 @@
 {
   "name": "grunt-sitemaps",
   "description": "A Grunt plugin to automate the creation of sitemaps",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/christian-hager/grunt-sitemaps",
-  "author": {
-    "name": "Christian Hager",
-    "email": "me@chager.de",
-    "url": "www.chager.de"
-  },
+  "author": "Christian Hager <me@chager.de> (www.chager.de)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/christian-hager/grunt-sitemaps.git"
+    "url": "git+https://github.com/christian-hager/grunt-sitemaps.git"
   },
   "bugs": {
     "url": "https://github.com/christian-hager/grunt-sitemaps/issues"
@@ -38,5 +34,6 @@
   },
   "keywords": [
     "gruntplugin"
-  ]
+  ],
+  "main": "Gruntfile.js"
 }

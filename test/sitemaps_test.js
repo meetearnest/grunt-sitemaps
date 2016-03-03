@@ -22,16 +22,18 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
+var timeRegex = /<lastmod>[0-9:.A-Z+-]+<\/lastmod>/g;
+var mockDate = 'DATE';
+
 exports.sitemaps = {
   setUp: function(done) {
-    // setup here if necessary
     done();
   },
   default: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/default/sitemap.xml');
-    var expected = grunt.file.read('test/expected/default-sitemap.xml');
+    var actual = grunt.file.read('tmp/default/sitemap.xml').replace(timeRegex, mockDate);
+    var expected = grunt.file.read('test/expected/default-sitemap.xml').replace(timeRegex, mockDate);
     test.equal(actual, expected, 'Comparison of result sitemap failed.');
 
     test.done();
@@ -39,8 +41,17 @@ exports.sitemaps = {
   custom: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/custom/sitemap.xml');
-    var expected = grunt.file.read('test/expected/custom-sitemap.xml');
+    var actual = grunt.file.read('tmp/custom/sitemap.xml').replace(timeRegex, mockDate);
+    var expected = grunt.file.read('test/expected/custom-sitemap.xml').replace(timeRegex, mockDate);
+    test.equal(actual, expected, 'Comparison of result sitemap failed.');
+
+    test.done();
+  },
+  priorities: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/priorities/sitemap.xml').replace(timeRegex, mockDate);
+    var expected = grunt.file.read('test/expected/priorities-sitemap.xml').replace(timeRegex, mockDate);
     test.equal(actual, expected, 'Comparison of result sitemap failed.');
 
     test.done();
